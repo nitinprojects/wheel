@@ -7,6 +7,7 @@ import { Container, Header } from "neetoui/layouts";
 import EmptyState from "components/Common/EmptyState";
 
 import { NOTES_LIST_DATA } from "./constants";
+import DeleteAlert from "./DeleteAlert";
 import NotesList from "./NoteList";
 import NotesMenuBar from "./NotesMenuBar";
 
@@ -15,6 +16,8 @@ const Notes = () => {
   const [notes, setNotes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showMenu, setShowMenu] = useState(false);
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
+  const [deleteNoteTitle, setDeleteNoteTitle] = useState("");
 
   useEffect(() => {
     setNotes(NOTES_LIST_DATA);
@@ -45,7 +48,11 @@ const Notes = () => {
           }}
         />
         {notes.length ? (
-          <NotesList data={notes} />
+          <NotesList
+            data={notes}
+            setDeleteNoteTitle={setDeleteNoteTitle}
+            setShowDeleteAlert={setShowDeleteAlert}
+          />
         ) : (
           <EmptyState
             image={EmptyNotesListImage}
@@ -55,6 +62,11 @@ const Notes = () => {
             title="Looks like you don't have any notes!"
           />
         )}
+        <DeleteAlert
+          deleteNoteTitle={deleteNoteTitle}
+          isOpen={showDeleteAlert}
+          onClose={() => setShowDeleteAlert(false)}
+        />
       </Container>
     </>
   );
