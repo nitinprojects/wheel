@@ -10,6 +10,7 @@ import { NOTES_LIST_DATA } from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import NotesList from "./NoteList";
 import NotesMenuBar from "./NotesMenuBar";
+import AddNotePane from "./Pane/Create";
 
 const Notes = () => {
   const [loading, setLoading] = useState(true);
@@ -18,6 +19,7 @@ const Notes = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [deleteNoteTitle, setDeleteNoteTitle] = useState("");
+  const [showAddPane, setShowAddPane] = useState(false);
 
   useEffect(() => {
     setNotes(NOTES_LIST_DATA);
@@ -39,7 +41,7 @@ const Notes = () => {
             <Button
               icon="ri-add-line"
               label="Add New Note"
-              onClick={() => {}}
+              onClick={() => setShowAddPane(showAddPane => !showAddPane)}
             />
           }
           searchProps={{
@@ -67,6 +69,7 @@ const Notes = () => {
           isOpen={showDeleteAlert}
           onClose={() => setShowDeleteAlert(false)}
         />
+        <AddNotePane setShowPane={setShowAddPane} showPane={showAddPane} />
       </Container>
     </>
   );

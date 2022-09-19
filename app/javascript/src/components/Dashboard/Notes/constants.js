@@ -56,11 +56,61 @@ export const NOTES_LIST_DATA = [
 export const NOTES_FORM_INITIAL_FORM_VALUES = {
   title: "",
   description: "",
+  assigned_contact: null,
+  tags: [],
 };
+
+export const ASSIGNED_CONTACTS = [
+  {
+    label: "Value One",
+    value: "value1",
+  },
+  {
+    label: "Value Two",
+    value: "value2",
+  },
+];
+
+export const TAGS = [
+  {
+    label: "UI",
+    value: "UI",
+  },
+  {
+    label: "Onboarding",
+    value: "onboarding",
+  },
+  {
+    label: "Tech",
+    value: "Tech",
+  },
+];
 
 export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
   title: yup.string().required("Title is required"),
   description: yup.string().required("Description is required"),
+  assigned_contact: yup
+    .object()
+    .nullable()
+    .shape({
+      label: yup
+        .string()
+        .oneOf(ASSIGNED_CONTACTS.map(contact => contact.label)),
+      value: yup
+        .string()
+        .oneOf(ASSIGNED_CONTACTS.map(contact => contact.value)),
+    })
+    .required("Assigned Contact is is required"),
+  tags: yup
+    .array()
+    .of(
+      yup.object().shape({
+        label: yup.string().oneOf(TAGS.map(tag => tag.label)),
+        value: yup.string().oneOf(TAGS.map(tag => tag.value)),
+      })
+    )
+    .required("Tag is required")
+    .min(1, "Min one tag is required"),
 });
 
 export const NOTES_TABLE_COLUMN_DATA = [
