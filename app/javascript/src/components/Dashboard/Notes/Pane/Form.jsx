@@ -1,28 +1,21 @@
 import React, { useState } from "react";
 
 import { Formik, Form } from "formik";
-import { Button, Pane } from "neetoui";
-import { Input, Textarea } from "neetoui/formik";
+import { Button, Pane, Toastr } from "neetoui";
+import { Input, Textarea, Select } from "neetoui/formik";
 
-import notesApi from "apis/notes";
+import {
+  NOTES_FORM_VALIDATION_SCHEMA,
+  ASSIGNED_CONTACTS,
+  TAGS,
+} from "../constants";
 
-import { NOTES_FORM_VALIDATION_SCHEMA } from "../constants";
-
-const NoteForm = ({ onClose, refetch, note, isEdit }) => {
+const NoteForm = ({ note, onClose }) => {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async values => {
-    try {
-      if (isEdit) {
-        await notesApi.update(note.id, values);
-      } else {
-        await notesApi.create(values);
-      }
-      refetch();
-      onClose();
-    } catch (err) {
-      logger.error(err);
-    }
+  const handleSubmit = () => {
+    Toastr.success("Note has been successfully Added.");
+    onClose();
   };
 
   return (
@@ -47,14 +40,31 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
               className="w-full flex-grow-0"
               label="Description"
               name="description"
-              rows={8}
+              rows={2}
+            />
+            <Select
+              required
+              className="w-full flex-grow-0"
+              label="Assigned Contact"
+              name="assigned_contact"
+              options={ASSIGNED_CONTACTS}
+              placeholder="Select Contact"
+            />
+            <Select
+              isMulti
+              required
+              className="w-full flex-grow-0"
+              label="Tags"
+              name="tags"
+              options={TAGS}
+              placeholder="Select Tag"
             />
           </Pane.Body>
           <Pane.Footer>
             <Button
               className="mr-3"
               disabled={isSubmitting}
-              label={isEdit ? "Update" : "Save Changes"}
+              label="Save Changes"
               loading={isSubmitting}
               size="large"
               style="primary"
