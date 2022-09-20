@@ -3,6 +3,8 @@ import React from "react";
 import { Clock, MenuVertical } from "@bigbinary/neeto-icons";
 import { Typography, Tag, Dropdown, Avatar } from "neetoui";
 
+import { calculateCreatedAgo } from "./utils";
+
 const NotesList = ({ data, setShowDeleteAlert, setDeleteNoteTitle }) => {
   const handleDelete = title => {
     setDeleteNoteTitle(title);
@@ -30,7 +32,7 @@ const NotesList = ({ data, setShowDeleteAlert, setDeleteNoteTitle }) => {
             <div className="flex items-center space-x-2">
               <Clock color="#68737D" size={12} />
               <Typography style="body3">
-                {note.status} {note.createdAt}
+                {note.status} {calculateCreatedAgo(note.createdAt)}
               </Typography>
               <Avatar
                 size="small"
