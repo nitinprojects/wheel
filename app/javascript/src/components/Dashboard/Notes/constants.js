@@ -56,7 +56,7 @@ export const NOTES_LIST_DATA = [
 export const NOTES_FORM_INITIAL_FORM_VALUES = {
   title: "",
   description: "",
-  assigned_contact: null,
+  assignedContact: null,
   tags: [],
 };
 
@@ -89,7 +89,7 @@ export const TAGS = [
 export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
   title: yup.string().required("Title is required"),
   description: yup.string().required("Description is required"),
-  assigned_contact: yup
+  assignedContact: yup
     .object()
     .nullable()
     .shape({
