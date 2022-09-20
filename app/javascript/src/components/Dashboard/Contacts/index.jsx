@@ -5,12 +5,14 @@ import { Container, Header, Scrollable } from "neetoui/layouts";
 
 import DeleteAlert from "./DeleteAlert";
 import ContactsMenuBar from "./MenuBar";
+import NewContactForm from "./Pane/Create";
 import Table from "./Table";
 
 const Contacts = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [deleteContactName, setDeleteContactName] = useState("");
+  const [showNewContactPane, setShowNewContactPane] = useState(false);
 
   return (
     <>
@@ -19,7 +21,13 @@ const Contacts = () => {
         <Header
           title="All Contacts"
           actionBlock={
-            <Button icon="ri-add-line" label="Add Contact" onClick={() => {}} />
+            <Button
+              icon="ri-add-line"
+              label="Add Contact"
+              onClick={() => {
+                setShowNewContactPane(true);
+              }}
+            />
           }
           menuBarToggle={() => {
             setShowMenu(showMenu => !showMenu);
@@ -40,6 +48,10 @@ const Contacts = () => {
         deleteContactName={deleteContactName}
         isOpen={showDeleteAlert}
         onClose={() => setShowDeleteAlert(false)}
+      />
+      <NewContactForm
+        setShowPane={setShowNewContactPane}
+        showPane={showNewContactPane}
       />
     </>
   );
