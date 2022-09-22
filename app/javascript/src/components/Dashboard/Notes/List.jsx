@@ -5,7 +5,7 @@ import { Typography, Tag, Dropdown, Avatar } from "neetoui";
 
 import { calculateCreatedAgo } from "./utils";
 
-const List = ({ data, setShowDeleteAlert, setDeleteNoteTitle }) => {
+const List = ({ notes, setShowDeleteAlert, setDeleteNoteTitle }) => {
   const handleDelete = title => {
     setDeleteNoteTitle(title);
     setShowDeleteAlert(true);
@@ -13,7 +13,7 @@ const List = ({ data, setShowDeleteAlert, setDeleteNoteTitle }) => {
 
   return (
     <div className="flex w-full flex-col space-y-4">
-      {data.map(note => (
+      {notes.map(note => (
         <div className="rounded-lg border bg-white p-4 shadow-sm" key={note.id}>
           <div className="flex justify-between">
             <Typography component="h2" lineHeight="relaxed" style="h4">

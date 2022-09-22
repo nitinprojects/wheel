@@ -49,9 +49,9 @@ const Notes = () => {
             onChange: e => setSearchTerm(e.target.value),
           }}
         />
-        {notes.length ? (
+        {notes.length > 0 ? (
           <List
-            data={notes}
+            notes={notes}
             setDeleteNoteTitle={setDeleteNoteTitle}
             setShowDeleteAlert={setShowDeleteAlert}
           />
