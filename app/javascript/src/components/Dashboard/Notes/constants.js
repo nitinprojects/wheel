@@ -66,16 +66,11 @@ export const NOTES_FORM_INITIAL_FORM_VALUES = {
   tags: [],
 };
 
-export const ASSIGNED_CONTACTS = [
-  {
-    label: "Value One",
-    value: "valueOne",
-  },
-  {
-    label: "Value Two",
-    value: "valueTwo",
-  },
-];
+export const ASSIGNED_CONTACTS = buildSelectOptions([
+  "Oliver Smith",
+  "Anna Smith",
+  "Eve Smith",
+]);
 
 export const TAGS = buildSelectOptions([
   "UX Designer",

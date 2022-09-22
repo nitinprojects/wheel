@@ -2,22 +2,16 @@ import React from "react";
 
 import { MenuHorizontal } from "neetoicons";
 import { Avatar, Typography, Dropdown } from "neetoui";
+import { buildSelectOptions } from "utils";
 import * as yup from "yup";
 
-export const ROLES = [
-  {
-    label: "Admin",
-    value: "admin",
-  },
-  {
-    label: "Editor",
-    value: "editor",
-  },
-  {
-    label: "User",
-    value: "user",
-  },
-];
+export const ROLES = buildSelectOptions([
+  "Owner",
+  "Admin",
+  "User",
+  "Project Manager",
+  "Agent",
+]);
 
 export const CONTACTS_FORM_INITIAL_FORM_VALUES = {
   firstName: "",
