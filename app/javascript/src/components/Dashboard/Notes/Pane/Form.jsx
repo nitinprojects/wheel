@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Formik, Form } from "formik";
+import { Formik, Form as NeetoUIForm } from "formik";
 import { Button, Pane, Toastr } from "neetoui";
 import { Input, Textarea, Select } from "neetoui/formik";
 
@@ -10,7 +10,7 @@ import {
   TAGS,
 } from "../constants";
 
-const NoteForm = ({ note, onClose }) => {
+const Form = ({ note, onClose }) => {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = () => {
@@ -27,7 +27,7 @@ const NoteForm = ({ note, onClose }) => {
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
-        <Form className="w-full">
+        <NeetoUIForm className="w-full">
           <Pane.Body className="space-y-6">
             <Input
               required
@@ -75,13 +75,14 @@ const NoteForm = ({ note, onClose }) => {
               label="Cancel"
               size="large"
               style="text"
+              type="reset"
               onClick={onClose}
             />
           </Pane.Footer>
-        </Form>
+        </NeetoUIForm>
       )}
     </Formik>
   );
 };
 
-export default NoteForm;
+export default Form;

@@ -14,9 +14,8 @@ const DeleteAlert = ({ isOpen, onClose, deleteContactName }) => {
 
   const renderAlertMessage = name => (
     <span>
-      {" "}
-      Are you sure you want to delete the contact <strong>{name}</strong>? This
-      action cannot be undone.{" "}
+      Are you sure you want to delete the contact "<strong>{name}</strong>"?
+      This action cannot be undone.
     </span>
   );
 

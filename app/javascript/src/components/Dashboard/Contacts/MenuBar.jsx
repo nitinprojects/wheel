@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 
-import { Search, Settings, Plus } from "@bigbinary/neeto-icons";
-import { MenuBar } from "@bigbinary/neetoui/layouts";
+import { Search, Settings, Plus } from "neetoicons";
 import { Typography } from "neetoui";
+import { MenuBar as NeetoUIMenubar } from "neetoui/layouts";
 
-const ContactsMenuBar = ({ showMenu }) => {
+const MenuBar = ({ showMenu }) => {
   const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
   const [isTagsSearchCollapsed, setIsTagsSearchCollapsed] = useState(true);
 
   return (
-    <MenuBar showMenu={showMenu} title="Contacts">
-      <MenuBar.Block active count={0} label="All" />
-      <MenuBar.Block count={0} label="Archived" />
-      <MenuBar.Block count={0} label="Completed" />
-      <MenuBar.Block count={4} label="Phase 2" />
-      <MenuBar.SubTitle
+    <NeetoUIMenubar showMenu={showMenu} title="Contacts">
+      <NeetoUIMenubar.Block active count={0} label="All" />
+      <NeetoUIMenubar.Block count={0} label="Archived" />
+      <NeetoUIMenubar.Block count={0} label="Completed" />
+      <NeetoUIMenubar.Block count={4} label="Phase 2" />
+      <NeetoUIMenubar.SubTitle
         iconProps={[
           {
             icon: Search,
@@ -31,12 +31,12 @@ const ContactsMenuBar = ({ showMenu }) => {
         >
           Segments
         </Typography>
-      </MenuBar.SubTitle>
-      <MenuBar.Search
+      </NeetoUIMenubar.SubTitle>
+      <NeetoUIMenubar.Search
         collapse={isSearchCollapsed}
         onCollapse={() => setIsSearchCollapsed(true)}
       />
-      <MenuBar.SubTitle
+      <NeetoUIMenubar.SubTitle
         iconProps={[
           {
             icon: Settings,
@@ -61,13 +61,13 @@ const ContactsMenuBar = ({ showMenu }) => {
         >
           Tags
         </Typography>
-      </MenuBar.SubTitle>
-      <MenuBar.Search
+      </NeetoUIMenubar.SubTitle>
+      <NeetoUIMenubar.Search
         collapse={isTagsSearchCollapsed}
         onCollapse={() => setIsTagsSearchCollapsed(true)}
       />
-    </MenuBar>
+    </NeetoUIMenubar>
   );
 };
 
-export default ContactsMenuBar;
+export default MenuBar;

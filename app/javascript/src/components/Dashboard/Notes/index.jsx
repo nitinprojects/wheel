@@ -8,9 +8,9 @@ import EmptyState from "components/Common/EmptyState";
 
 import { NOTES_LIST_DATA } from "./constants";
 import DeleteAlert from "./DeleteAlert";
-import NotesList from "./NoteList";
-import NotesMenuBar from "./NotesMenuBar";
-import AddNotePane from "./Pane/Create";
+import List from "./List";
+import MenuBar from "./MenuBar";
+import CreateForm from "./Pane/Create";
 
 const Notes = () => {
   const [loading, setLoading] = useState(true);
@@ -32,7 +32,7 @@ const Notes = () => {
 
   return (
     <>
-      <NotesMenuBar showMenu={showMenu} />
+      <MenuBar showMenu={showMenu} />
       <Container>
         <Header
           menuBarToggle={() => setShowMenu(showMenu => !showMenu)}
@@ -49,9 +49,9 @@ const Notes = () => {
             onChange: e => setSearchTerm(e.target.value),
           }}
         />
-        {notes.length ? (
-          <NotesList
-            data={notes}
+        {notes.length > 0 ? (
+          <List
+            notes={notes}
             setDeleteNoteTitle={setDeleteNoteTitle}
             setShowDeleteAlert={setShowDeleteAlert}
           />
@@ -69,7 +69,7 @@ const Notes = () => {
           isOpen={showDeleteAlert}
           onClose={() => setShowDeleteAlert(false)}
         />
-        <AddNotePane setShowPane={setShowAddPane} showPane={showAddPane} />
+        <CreateForm setShowPane={setShowAddPane} showPane={showAddPane} />
       </Container>
     </>
   );

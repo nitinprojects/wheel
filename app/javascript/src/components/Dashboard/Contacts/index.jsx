@@ -4,8 +4,8 @@ import { Button } from "neetoui";
 import { Container, Header, Scrollable } from "neetoui/layouts";
 
 import DeleteAlert from "./DeleteAlert";
-import ContactsMenuBar from "./MenuBar";
-import NewContactForm from "./Pane/Create";
+import MenuBar from "./MenuBar";
+import CreateForm from "./Pane/Create";
 import Table from "./Table";
 
 const Contacts = () => {
@@ -16,7 +16,7 @@ const Contacts = () => {
 
   return (
     <>
-      <ContactsMenuBar showMenu={showMenu} />
+      <MenuBar showMenu={showMenu} />
       <Container>
         <Header
           title="All Contacts"
@@ -49,7 +49,7 @@ const Contacts = () => {
         isOpen={showDeleteAlert}
         onClose={() => setShowDeleteAlert(false)}
       />
-      <NewContactForm
+      <CreateForm
         setShowPane={setShowNewContactPane}
         showPane={showNewContactPane}
       />

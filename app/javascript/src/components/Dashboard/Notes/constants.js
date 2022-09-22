@@ -1,10 +1,12 @@
+import { buildSelectOptions } from "utils";
 import * as yup from "yup";
 
 export const NOTES_LIST_DATA = [
   {
     id: 1,
     title: "How to claim the warranty?",
-    description: `Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
+    description:
+      '"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn\'t getting',
     tag: "Getting Started",
     status: "created",
     createdAt: "2022-09-20T10:39:16+00:00",
@@ -14,7 +16,8 @@ export const NOTES_LIST_DATA = [
   {
     id: 2,
     title: "How to claim the warranty?",
-    description: `Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
+    description:
+      '"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn\'t getting',
     tag: "Onboarding",
     status: "drafted",
     createdAt: "2022-09-20T10:39:16+00:00",
@@ -24,7 +27,8 @@ export const NOTES_LIST_DATA = [
   {
     id: 3,
     title: "How to claim the warranty?",
-    description: `Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
+    description:
+      '"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn\'t getting',
     tag: "User Flow",
     status: "drafted",
     createdAt: "2022-09-20T10:39:16+00:00",
@@ -34,7 +38,8 @@ export const NOTES_LIST_DATA = [
   {
     id: 4,
     title: "How to claim the warranty?",
-    description: `Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
+    description:
+      '"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn\'t getting',
     tag: "UX",
     status: "drafted",
     createdAt: "2022-09-20T10:39:16+00:00",
@@ -44,7 +49,8 @@ export const NOTES_LIST_DATA = [
   {
     id: 5,
     title: "How to claim the warranty?",
-    description: `Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
+    description:
+      '"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn\'t getting',
     tag: "Bug",
     status: "drafted",
     createdAt: "2022-09-20T10:39:16+00:00",
@@ -60,31 +66,19 @@ export const NOTES_FORM_INITIAL_FORM_VALUES = {
   tags: [],
 };
 
-export const ASSIGNED_CONTACTS = [
-  {
-    label: "Value One",
-    value: "value1",
-  },
-  {
-    label: "Value Two",
-    value: "value2",
-  },
-];
+export const ASSIGNED_CONTACTS = buildSelectOptions([
+  "Oliver Smith",
+  "Anna Smith",
+  "Eve Smith",
+]);
 
-export const TAGS = [
-  {
-    label: "UI",
-    value: "UI",
-  },
-  {
-    label: "Onboarding",
-    value: "onboarding",
-  },
-  {
-    label: "Tech",
-    value: "Tech",
-  },
-];
+export const TAGS = buildSelectOptions([
+  "UX Designer",
+  "UI Engineer",
+  "Onboarding",
+  "Misc",
+  "HR",
+]);
 
 export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
   title: yup.string().required("Title is required"),
@@ -100,7 +94,7 @@ export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
         .string()
         .oneOf(ASSIGNED_CONTACTS.map(contact => contact.value)),
     })
-    .required("Assigned Contact is is required"),
+    .required("Assigned Contact is required"),
   tags: yup
     .array()
     .of(
@@ -110,7 +104,7 @@ export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
       })
     )
     .required("Tag is required")
-    .min(1, "Min one tag is required"),
+    .min(1, "Atleast one tag is required"),
 });
 
 export const NOTES_TABLE_COLUMN_DATA = [

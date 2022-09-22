@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Clock, MenuVertical } from "@bigbinary/neeto-icons";
+import { Clock, MenuVertical } from "neetoicons";
 import { Typography, Tag, Dropdown, Avatar } from "neetoui";
 
 import { calculateCreatedAgo } from "./utils";
 
-const NotesList = ({ data, setShowDeleteAlert, setDeleteNoteTitle }) => {
+const List = ({ notes, setShowDeleteAlert, setDeleteNoteTitle }) => {
   const handleDelete = title => {
     setDeleteNoteTitle(title);
     setShowDeleteAlert(true);
@@ -13,13 +13,13 @@ const NotesList = ({ data, setShowDeleteAlert, setDeleteNoteTitle }) => {
 
   return (
     <div className="flex w-full flex-col space-y-4">
-      {data.map(note => (
+      {notes.map(note => (
         <div className="rounded-lg border bg-white p-4 shadow-sm" key={note.id}>
           <div className="flex justify-between">
             <Typography component="h2" lineHeight="relaxed" style="h4">
               {note.title}
             </Typography>
-            <Dropdown buttonStyle="text" icon={MenuVertical} label="">
+            <Dropdown buttonStyle="text" icon={MenuVertical}>
               <li>Edit</li>
               <li onClick={() => handleDelete(note.title)}>Delete</li>
             </Dropdown>
@@ -49,4 +49,4 @@ const NotesList = ({ data, setShowDeleteAlert, setDeleteNoteTitle }) => {
   );
 };
 
-export default NotesList;
+export default List;

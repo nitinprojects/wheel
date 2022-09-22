@@ -1,23 +1,17 @@
 import React from "react";
 
-import { MenuHorizontal } from "@bigbinary/neeto-icons";
+import { MenuHorizontal } from "neetoicons";
 import { Avatar, Typography, Dropdown } from "neetoui";
+import { buildSelectOptions } from "utils";
 import * as yup from "yup";
 
-export const ROLES = [
-  {
-    label: "Admin",
-    value: "admin",
-  },
-  {
-    label: "Editor",
-    value: "editor",
-  },
-  {
-    label: "User",
-    value: "user",
-  },
-];
+export const ROLES = buildSelectOptions([
+  "Owner",
+  "Admin",
+  "User",
+  "Project Manager",
+  "Agent",
+]);
 
 export const CONTACTS_FORM_INITIAL_FORM_VALUES = {
   firstName: "",
@@ -40,7 +34,7 @@ export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
       label: yup.string().oneOf(ROLES.map(role => role.label)),
       value: yup.string().oneOf(ROLES.map(role => role.value)),
     })
-    .required("Role is is required"),
+    .required("Role is required"),
 });
 
 export const CONTACTS_DATA = [
@@ -52,7 +46,7 @@ export const CONTACTS_DATA = [
       role: "owner",
     },
     email: "albert@borer.com",
-    created_at: "Sep 13, 2022",
+    createdAt: "Sep 13, 2022",
   },
   {
     id: 2,
@@ -62,7 +56,7 @@ export const CONTACTS_DATA = [
       role: "owner",
     },
     email: "albert@borer.com",
-    created_at: "Sep 13, 2022",
+    createdAt: "Sep 13, 2022",
   },
 ];
 
@@ -104,8 +98,8 @@ export const buildContactColumnData = (
     },
     {
       title: "Created At",
-      dataIndex: "created_at",
-      key: "created_at",
+      dataIndex: "createdAt",
+      key: "createdAt",
       width: 150,
     },
     {
