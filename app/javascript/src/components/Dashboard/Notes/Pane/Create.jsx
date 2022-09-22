@@ -6,7 +6,7 @@ import Form from "./Form";
 
 import { NOTES_FORM_INITIAL_FORM_VALUES } from "../constants";
 
-const NewNoteForm = ({ showPane, setShowPane }) => {
+const Create = ({ showPane, setShowPane }) => {
   const onClose = () => setShowPane(false);
 
   return (
@@ -21,4 +21,4 @@ const NewNoteForm = ({ showPane, setShowPane }) => {
   );
 };
 
-export default NewNoteForm;
+export default Create;

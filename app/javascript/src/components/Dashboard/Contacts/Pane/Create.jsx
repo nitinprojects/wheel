@@ -6,7 +6,7 @@ import Form from "./Form";
 
 import { CONTACTS_FORM_INITIAL_FORM_VALUES } from "../constants";
 
-const NewContactForm = ({ showPane, setShowPane }) => {
+const Create = ({ showPane, setShowPane }) => {
   const onClose = () => setShowPane(false);
 
   return (
@@ -21,4 +21,4 @@ const NewContactForm = ({ showPane, setShowPane }) => {
   );
 };
 
-export default NewContactForm;
+export default Create;

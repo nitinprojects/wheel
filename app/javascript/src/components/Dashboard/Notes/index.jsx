@@ -10,7 +10,7 @@ import { NOTES_LIST_DATA } from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import List from "./List";
 import MenuBar from "./MenuBar";
-import NewNoteForm from "./Pane/Create";
+import CreateForm from "./Pane/Create";
 
 const Notes = () => {
   const [loading, setLoading] = useState(true);
@@ -69,7 +69,7 @@ const Notes = () => {
           isOpen={showDeleteAlert}
           onClose={() => setShowDeleteAlert(false)}
         />
-        <NewNoteForm setShowPane={setShowAddPane} showPane={showAddPane} />
+        <CreateForm setShowPane={setShowAddPane} showPane={showAddPane} />
       </Container>
     </>
   );
