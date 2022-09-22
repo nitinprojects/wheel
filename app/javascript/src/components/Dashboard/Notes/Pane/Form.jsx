@@ -75,6 +75,7 @@ const Form = ({ note, onClose }) => {
               label="Cancel"
               size="large"
               style="text"
+              type="reset"
               onClick={onClose}
             />
           </Pane.Footer>
