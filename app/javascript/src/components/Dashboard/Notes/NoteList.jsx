@@ -19,7 +19,7 @@ const NotesList = ({ data, setShowDeleteAlert, setDeleteNoteTitle }) => {
             <Typography component="h2" lineHeight="relaxed" style="h4">
               {note.title}
             </Typography>
-            <Dropdown buttonStyle="text" icon={MenuVertical} label="">
+            <Dropdown buttonStyle="text" icon={MenuVertical}>
               <li>Edit</li>
               <li onClick={() => handleDelete(note.title)}>Delete</li>
             </Dropdown>
