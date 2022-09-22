@@ -105,7 +105,7 @@ export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
         .string()
         .oneOf(ASSIGNED_CONTACTS.map(contact => contact.value)),
     })
-    .required("Assigned Contact is is required"),
+    .required("Assigned Contact is required"),
   tags: yup
     .array()
     .of(
@@ -115,7 +115,7 @@ export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
       })
     )
     .required("Tag is required")
-    .min(1, "Min one tag is required"),
+    .min(1, "Atleast one tag is required"),
 });
 
 export const NOTES_TABLE_COLUMN_DATA = [
