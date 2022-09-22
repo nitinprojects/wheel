@@ -14,7 +14,7 @@ const DeleteAlert = ({ isOpen, onClose, deleteNoteTitle }) => {
 
   const renderAlertMessage = title => (
     <span>
-      Are you sure you want to delete the note <strong>{title}</strong> This
+      Are you sure you want to delete the note "<strong>{title}</strong>" This
       action cannot be undone.
     </span>
   );
