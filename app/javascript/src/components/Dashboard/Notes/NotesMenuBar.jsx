@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Settings, Plus, Search } from "@bigbinary/neeto-icons";
-import { MenuBar } from "@bigbinary/neetoui/layouts";
+import { Settings, Plus, Search } from "neetoicons";
 import { Typography } from "neetoui";
+import { MenuBar } from "neetoui/layouts";
 
 const NotesMenuBar = ({ showMenu }) => (
   <MenuBar showMenu={showMenu} title="Notes">

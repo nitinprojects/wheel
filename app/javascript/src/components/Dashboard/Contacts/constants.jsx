@@ -1,6 +1,6 @@
 import React from "react";
 
-import { MenuHorizontal } from "@bigbinary/neeto-icons";
+import { MenuHorizontal } from "neetoicons";
 import { Avatar, Typography, Dropdown } from "neetoui";
 import * as yup from "yup";
 

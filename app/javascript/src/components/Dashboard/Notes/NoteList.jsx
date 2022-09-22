@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Clock, MenuVertical } from "@bigbinary/neeto-icons";
+import { Clock, MenuVertical } from "neetoicons";
 import { Typography, Tag, Dropdown, Avatar } from "neetoui";
 
 import { calculateCreatedAgo } from "./utils";
