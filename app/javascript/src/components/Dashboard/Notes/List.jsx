@@ -5,7 +5,7 @@ import { Typography, Tag, Dropdown, Avatar } from "neetoui";
 
 import { calculateCreatedAgo } from "./utils";
 
-const NotesList = ({ data, setShowDeleteAlert, setDeleteNoteTitle }) => {
+const List = ({ data, setShowDeleteAlert, setDeleteNoteTitle }) => {
   const handleDelete = title => {
     setDeleteNoteTitle(title);
     setShowDeleteAlert(true);
@@ -49,4 +49,4 @@ const NotesList = ({ data, setShowDeleteAlert, setDeleteNoteTitle }) => {
   );
 };
 
-export default NotesList;
+export default List;

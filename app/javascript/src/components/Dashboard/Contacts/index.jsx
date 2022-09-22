@@ -4,7 +4,7 @@ import { Button } from "neetoui";
 import { Container, Header, Scrollable } from "neetoui/layouts";
 
 import DeleteAlert from "./DeleteAlert";
-import ContactsMenuBar from "./MenuBar";
+import MenuBar from "./MenuBar";
 import NewContactForm from "./Pane/Create";
 import Table from "./Table";
 
@@ -16,7 +16,7 @@ const Contacts = () => {
 
   return (
     <>
-      <ContactsMenuBar showMenu={showMenu} />
+      <MenuBar showMenu={showMenu} />
       <Container>
         <Header
           title="All Contacts"
