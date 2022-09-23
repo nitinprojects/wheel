@@ -40,8 +40,9 @@ export const ASSIGNED_CONTACTS = buildSelectOptions([
 ]);
 
 export const TAGS = buildSelectOptions([
-  "UX Designer",
-  "UI Engineer",
+  "UX-Designer",
+  "UI_Engineer",
+  "Web Developer",
   "Onboarding",
   "Misc",
   "HR",
