@@ -6,7 +6,7 @@ export const NOTES_LIST_DATA = [
     id: 1,
     title: "How to claim the warranty?",
     description:
-      '"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn\'t getting',
+      "Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting",
     tag: "Getting Started",
     status: "created",
     createdAt: "2022-09-20T10:39:16+00:00",
@@ -17,7 +17,7 @@ export const NOTES_LIST_DATA = [
     id: 2,
     title: "How to claim the warranty?",
     description:
-      '"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn\'t getting',
+      "Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting",
     tag: "Onboarding",
     status: "drafted",
     createdAt: "2022-09-20T10:39:16+00:00",
