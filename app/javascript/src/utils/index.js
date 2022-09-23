@@ -2,7 +2,7 @@ import * as R from "ramda";
 
 const toCamelCase = str =>
   str
-    .split(" ")
+    .split(/_|-|\s/)
     .map((word, i) => {
       if (i === 0) return word.toLowerCase();
 
